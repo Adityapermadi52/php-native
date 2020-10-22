@@ -1,8 +1,12 @@
 <?php
-session_start();
-if(isset($_SESSION['login_in'])){
-    header("location:../login.php");
-}else{
-
-}
+    include "koneksi.php";
+    session_start();
+    $login = $_SESSION['login'];
+    if($login == "admin" ){
+        header("location:admin/home.php");
+    }elseif($login == "user"){
+      header("location:user/home.php");
+    }else{
+       header("location:login.php");
+    }
 ?>
